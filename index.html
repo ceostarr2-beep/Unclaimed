@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lenora Apartments & Suites | Luxury & Comfort</title>
+
+<meta name="description"
+content="Experience comfort, elegance and privacy at Lenora Apartments & Suites. Discover beautifully designed accommodation and an unforgettable stay.">
+
+<meta name="theme-color" content="#070707">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap" rel="stylesheet">
+
+<style>
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+img,
+video{
+    max-width:100%;
+}
+
+section,
+footer{
+    max-width:100%;
+    overflow:hidden;
+}
+/* =========================================================
+   LENORA APARTMENTS & SUITES
+   CINEMATIC ONE-PAGE WEBSITE
+========================================================= */
+
+:root{
+    --black:#050505;
+    --black2:#0b0b0b;
+    --gold:#d8ad58;
+    --gold-light:#f2d58c;
+    --cream:#f6f0e4;
+    --muted:#aaa49a;
+    --border:rgba(216,173,88,.25);
+    --glass:rgba(255,255,255,.055);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:white;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#030303;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    transition:opacity 1s ease, visibility 1s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-logo{
+    font-family:"Cormorant Garamond",serif;
+    font-size:60px;
+    letter-spacing:8px;
+    color:var(--gold-light);
+    animation:logoPulse 2s infinite;
+}
+
+.loader-line{
+    width:180px;
+    height:1px;
+    background:#333;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    width:0;
+    height:100%;
+    background:var(--gold);
+    animation:loadLine 2.5s forwards;
+}
+
+@keyframes loadLine{
+    to{width:100%;}
+}
+
+@keyframes logoPulse{
+    50%{opacity:.45;}
+}
+
+/* =========================
+   SCROLL PROGRESS
+========================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
+    z-index:10000;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    z-index:5000;
+    transition:.5s;
+}
+
+nav.scrolled{
+    height:68px;
+    background:rgba(5,5,5,.85);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold-light);
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:4px;
+}
+
+.logo small{
+    display:block;
+    font-family:"DM Sans",sans-serif;
+    font-size:7px;
+    letter-spacing:4px;
+    text-align:center;
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#eee;
+    font-size:12px;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-8px;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:.3s;
+    transform:translateX(-50%);
+}
+
+.nav-links a:hover{
+    color:var(--gold-light);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-book{
+    text-decoration:none;
+    color:#111;
+    background:linear-gradient(135deg,#f5d78d,#c7943d);
+    padding:13px 22px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+    transition:.4s;
+}
+
+.nav-book:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(216,173,88,.3);
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,
+    rgba(0,0,0,.82) 0%,
+    rgba(0,0,0,.45) 48%,
+    rgba(0,0,0,.25) 100%),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=90")
+    center/cover;
+    transform:scale(1.08);
+    animation:heroZoom 14s ease-out forwards;
+}
+
+@keyframes heroZoom{
+    to{transform:scale(1);}
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 70% 45%,transparent 0%,rgba(0,0,0,.25) 45%,rgba(0,0,0,.8) 100%);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:min(1100px,88%);
+    margin:auto;
+    padding-top:80px;
+}
+
+.hero-kicker{
+    color:var(--gold-light);
+    letter-spacing:8px;
+    font-size:11px;
+    margin-bottom:18px;
+    opacity:0;
+    animation:heroText 1s .7s forwards;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(65px,10vw,145px);
+    line-height:.75;
+    font-weight:500;
+    letter-spacing:-3px;
+    opacity:0;
+    animation:heroText 1.2s .9s forwards;
+}
+
+.hero h1 span{
+    display:block;
+    font-size:.38em;
+    letter-spacing:5px;
+    margin-top:25px;
+}
+
+.script{
+    font-family:"Italianno",cursive;
+    color:var(--gold-light);
+    font-size:45px;
+    margin:20px 0 30px;
+    opacity:0;
+    animation:heroText 1s 1.3s forwards;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    opacity:0;
+    animation:heroText 1s 1.6s forwards;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    padding:16px 25px;
+    border-radius:40px;
+    font-size:11px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn-gold{
+    background:linear-gradient(135deg,#f4d990,#c8943e);
+    color:#111;
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.3);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.hero-rating{
+    position:absolute;
+    right:7%;
+    bottom:12%;
+    z-index:3;
+    background:rgba(10,10,10,.7);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.12);
+    padding:18px 22px;
+    border-radius:15px;
+}
+
+.hero-rating strong{
+    color:var(--gold-light);
+    font-size:23px;
+}
+
+.stars{
+    color:var(--gold);
+    letter-spacing:3px;
+}
+
+.hero-rating small{
+    display:block;
+    color:#aaa;
+    margin-top:4px;
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:4;
+    color:#aaa;
+    font-size:9px;
+    letter-spacing:3px;
+    text-align:center;
+}
+
+.scroll span{
+    display:block;
+    width:1px;
+    height:45px;
+    background:linear-gradient(var(--gold),transparent);
+    margin:10px auto 0;
+    animation:scrollLine 1.8s infinite;
+}
+
+@keyframes scrollLine{
+    0%,100%{transform:scaleY(.3);transform-origin:top;}
+    50%{transform:scaleY(1);}
+}
+
+@keyframes heroText{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:120px 7%;
+    position:relative;
+}
+
+.section-label{
+    color:var(--gold-light);
+    font-size:10px;
+    letter-spacing:5px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(42px,5vw,70px);
+    line-height:.95;
+    font-weight:500;
+}
+
+.section-title span{
+    color:var(--gold-light);
+}
+
+.section-text{
+    color:#aaa;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:
+    radial-gradient(circle at 80% 50%,rgba(216,173,88,.08),transparent 35%),
+    #070707;
+}
+
+.about-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px;
+    align-items:center;
+}
+
+.about-image{
+    height:600px;
+    border-radius:3px;
+    overflow:hidden;
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 1.5s;
+}
+
+.about-image:hover img{
+    transform:scale(1.08);
+}
+
+.about-image::before{
+    content:"";
+    position:absolute;
+    inset:20px;
+    border:1px solid rgba(255,255,255,.2);
+    z-index:2;
+    pointer-events:none;
+}
+
+.about-copy{
+    max-width:520px;
+}
+
+.about-copy .section-title{
+    margin-bottom:25px;
+}
+
+.signature{
+    font-family:"Italianno",cursive;
+    font-size:40px;
+    color:var(--gold);
+    margin-top:30px;
+}
+
+.features{
+    display:flex;
+    gap:35px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.feature-icon{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+}
+
+.feature span{
+    font-size:11px;
+    color:#ddd;
+}
+
+/* =========================
+   SUITES
+========================= */
+
+.suites{
+    background:#030303;
+    overflow:hidden;
+}
+
+.suites-heading{
+    max-width:1200px;
+    margin:0 auto 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+}
+
+.suite-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.suite-card{
+    position:relative;
+    height:500px;
+    overflow:hidden;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);
+    cursor:pointer;
+}
+
+.suite-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.suite-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent 30%,rgba(0,0,0,.95));
+}
+
+.suite-card:hover img{
+    transform:scale(1.1);
+}
+
+.suite-info{
+    position:absolute;
+    z-index:2;
+    left:25px;
+    right:25px;
+    bottom:25px;
+}
+
+.suite-number{
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:4px;
+}
+
+.suite-info h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    margin:5px 0;
+}
+
+.suite-info p{
+    color:#aaa;
+    font-size:11px;
+}
+
+.suite-arrow{
+    position:absolute;
+    right:20px;
+    bottom:25px;
+    width:42px;
+    height:42px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience{
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85")
+    center/cover fixed;
+}
+
+.experience-inner{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.experience-inner .section-text{
+    max-width:650px;
+    margin:25px auto 60px;
+}
+
+.amenities{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.15);
+}
+
+.amenity{
+    background:rgba(0,0,0,.7);
+    padding:35px 15px;
+    transition:.4s;
+}
+
+.amenity:hover{
+    background:rgba(216,173,88,.1);
+    transform:translateY(-5px);
+}
+
+.amenity-icon{
+    font-size:27px;
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.amenity h4{
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    font-weight:500;
+}
+
+.amenity p{
+    color:#888;
+    font-size:10px;
+    margin-top:7px;
+}
+
+/* =========================
+   CINEMATIC STATEMENT
+========================= */
+
+.statement{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:#070707;
+}
+
+.statement::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(216,173,88,.08);
+    filter:blur(100px);
+    animation:orb 7s infinite alternate;
+}
+
+@keyframes orb{
+    from{transform:translate(-150px,-50px);}
+    to{transform:translate(150px,50px);}
+}
+
+.statement-content{
+    position:relative;
+    z-index:2;
+}
+
+.statement h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(55px,8vw,110px);
+    font-weight:400;
+    line-height:.85;
+}
+
+.statement h2 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.statement p{
+    color:#999;
+    max-width:500px;
+    margin:30px auto;
+    line-height:1.8;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#050505;
+}
+
+.gallery-heading{
+    max-width:1200px;
+    margin:0 auto 45px;
+}
+
+.gallery-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:220px;
+    gap:12px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+}
+
+.gallery-item:nth-child(1){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+.gallery-item:nth-child(2){
+    grid-column:span 4;
+}
+
+.gallery-item:nth-child(3){
+    grid-column:span 3;
+}
+
+.gallery-item:nth-child(4){
+    grid-column:span 4;
+}
+
+.gallery-item:nth-child(5){
+    grid-column:span 3;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.gallery-item::after{
+    content:"VIEW";
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    transition:.5s;
+    letter-spacing:5px;
+    font-size:10px;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-item:hover::after{
+    opacity:1;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+    background:#080808;
+}
+
+.review-wrap{
+    max-width:1100px;
+    margin:auto;
+}
+
+.review-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.review-header .section-text{
+    max-width:600px;
+    margin:20px auto;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.review{
+    background:linear-gradient(145deg,#111,#080808);
+    border:1px solid rgba(255,255,255,.08);
+    padding:35px;
+    min-height:250px;
+    border-radius:12px;
+    position:relative;
+}
+
+.quote{
+    color:var(--gold);
+    font-size:35px;
+}
+
+.review p{
+    color:#bbb;
+    font-family:"Cormorant Garamond",serif;
+    font-size:20px;
+    line-height:1.4;
+    margin:15px 0 25px;
+}
+
+.review small{
+    color:#777;
+}
+
+.google-rating{
+    margin-top:35px;
+    text-align:center;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:10px;
+}
+
+.google-rating strong{
+    color:var(--gold-light);
+    font-size:32px;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    background:#030303;
+}
+
+.location-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.map{
+    min-height:400px;
+    background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1524666041070-9e4c2b0a5d3d?auto=format&fit=crop&w=1500&q=80")
+    center/cover;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.map-card{
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    padding:30px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.location-copy{
+    padding:50px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+}
+
+.contact-line{
+    padding:20px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.contact-line span{
+    display:block;
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:3px;
+    margin-bottom:7px;
+}
+
+.contact-line strong{
+    font-weight:400;
+}
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.cta{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2200&q=90")
+    center/cover;
+    background-attachment:fixed;
+}
+
+.cta-content{
+    max-width:800px;
+}
+
+.cta h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(60px,9vw,120px);
+    line-height:.8;
+    font-weight:400;
+}
+
+.cta h2 span{
+    color:var(--gold-light);
+}
+
+.cta p{
+    color:#ccc;
+    margin:30px auto;
+    max-width:550px;
+    line-height:1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#020202;
+    padding:70px 7% 30px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:60px;
+}
+
+.footer-brand{
+    font-family:"Cormorant Garamond",serif;
+    font-size:35px;
+    color:var(--gold);
+}
+
+footer h4{
+    margin-bottom:20px;
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:3px;
+}
+
+footer a{
+    display:block;
+    color:#888;
+    text-decoration:none;
+    font-size:12px;
+    margin-bottom:12px;
+    transition:.3s;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1200px;
+    margin:50px auto 0;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    color:#555;
+    font-size:10px;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#25D366;
+    color:white;
+    font-size:27px;
+    text-decoration:none;
+    z-index:4000;
+    box-shadow:0 0 0 0 rgba(37,211,102,.5);
+    animation:whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse{
+    70%{
+        box-shadow:0 0 0 15px rgba(37,211,102,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.reveal-left{
+    opacity:0;
+    transform:translateX(-70px);
+    transition:1s ease;
+}
+
+.reveal-left.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.reveal-right{
+    opacity:0;
+    transform:translateX(70px);
+    transition:1s ease;
+}
+
+.reveal-right.active{
+    opacity:1;
+    transform:translateX(0);
+}
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:9999;
+    transition:.4s ease;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.65),
+        transparent
+    );
+}
+
+.navbar.scrolled{
+    background:rgba(5,5,5,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(216,173,88,.15);
+}
+
+.logo{
+    color:#f2d58c;
+    text-decoration:none;
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#eee;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#d8ad58;
+}
+
+.nav-book{
+    text-decoration:none;
+    color:#050505;
+    background:#d8ad58;
+    padding:13px 18px;
+    font-size:9px;
+    letter-spacing:1.2px;
+    transition:.3s;
+}
+
+.nav-book:hover{
+    background:#f2d58c;
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    padding:8px;
+    cursor:pointer;
+}
+
+.menu span{
+    display:block;
+    width:25px;
+    height:1px;
+    background:#f2d58c;
+    margin:5px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:75%;
+        height:100vh;
+        background:#080808;
+        flex-direction:column;
+        justify-content:center;
+        transition:.5s;
+        border-left:1px solid rgba(255,255,255,.1);
+    }
+
+    .nav-links.active{
+        right:0;
+    }
+
+    .nav-links a{
+        font-size:16px;
+    }
+
+    .nav-book{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+        z-index:6000;
+    }
+
+    .hero-content{
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:75px;
+    }
+
+    .hero-rating{
+        display:none;
+    }
+
+    section{
+        padding:85px 6%;
+    }
+
+    .about-grid,
+    .location-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .about-image{
+        height:450px;
+    }
+
+    .suite-grid{
+        grid-template-columns:1fr;
+    }
+
+    .suite-card{
+        height:470px;
+    }
+
+    .suites-heading{
+        display:block;
+    }
+
+    .amenities{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+        grid-auto-rows:170px;
+    }
+
+       .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-item:first-child{
+        grid-column:span 2;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .location-grid{
+        grid-template-columns:1fr;
+    }
+
+    .map{
+        min-height:350px;
+    }
+
+    .location-copy{
+        padding:60px 8%;
+    }
+
+    .cta{
+        min-height:80vh;
+    }
+
+    .cta h2{
+        font-size:52px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+    }
+
+    .hero-bg{
+        transform:none !important;
+    }
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav class="navbar" id="navbar">
+
+    <a href="#home" class="logo">
+        LENORA
+    </a>
+
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#suites">Suites</a>
+
+        <a href="#amenities">Amenities</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#reviews">Reviews</a>
+
+        <a href="#location">Location</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <a
+    href="#contact"
+    class="nav-book">
+
+        BOOK YOUR STAY
+
+    </a>
+
+
+    <button
+    class="menu"
+    id="menu"
+    aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</nav>
+<!-- =========================================
+     LOADING SCREEN
+========================================= -->
+
+<div class="loader">
+
+    <div class="loader-logo">
+        LENORA
+    </div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
+    <div class="loader-text">
+        APARTMENTS & SUITES
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     SCROLL PROGRESS
+========================================= -->
+
+<div class="progress"></div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero" id="home">
+
+    <div
+    class="hero-bg"
+    style="
+    background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2200&q=90');
+    ">
+    </div>
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-small reveal">
+            WELCOME TO LENORA
+        </div>
+
+
+        <h1 class="reveal">
+
+            Stay.
+            <br>
+
+            <span>Beautifully.</span>
+
+        </h1>
+
+
+        <p class="hero-description reveal">
+
+            A refined stay designed around
+            comfort, elegance and unforgettable moments.
+
+        </p>
+
+
+        <div class="hero-buttons reveal">
+
+            <a
+            href="#suites"
+            class="btn btn-gold">
+
+                EXPLORE LENORA →
+
+            </a>
+
+
+            <a
+            href="#contact"
+            class="btn btn-outline">
+
+                MAKE AN ENQUIRY
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-rating reveal">
+
+            <strong>★★★★★</strong>
+
+            <span>
+                Highly rated guest experience
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <span>
+            SCROLL TO EXPLORE
+        </span>
+
+        <span class="scroll-line"></span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section class="about" id="about">
+
+    <div class="about-image reveal-left">
+
+        <img
+        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85"
+        alt="Elegant Lenora interior">
+
+    </div>
+
+
+    <div class="about-content reveal-right">
+
+        <div class="section-label">
+            THE LENORA EXPERIENCE
+        </div>
+
+
+        <h2 class="section-title">
+
+            More Than
+            <br>
+
+            <span>A Place To Stay.</span>
+
+        </h2>
+
+
+        <p class="section-text">
+
+            Lenora Apartments & Suites is imagined as
+            a place where comfort meets elegance.
+
+            Whether you're visiting for business,
+            relaxation or a memorable getaway,
+            every moment should feel effortless.
+
+        </p>
+
+
+        <p class="section-text">
+
+            From the atmosphere to the smallest details,
+            your stay should feel calm, private and refined.
+
+        </p>
+
+
+        <a
+        href="#suites"
+        class="text-link">
+
+            DISCOVER YOUR STAY →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SUITES
+========================================= -->
+
+<section class="suites" id="suites">
+
+    <div class="section-heading reveal">
+
+        <div class="section-label">
+            ACCOMMODATION
+        </div>
+
+
+        <h2 class="section-title">
+
+            Your Space.
+            <br>
+
+            <span>Your Comfort.</span>
+
+        </h2>
+
+
+        <p class="section-text">
+
+            Discover spaces created for relaxation,
+            privacy and a beautiful stay.
+
+        </p>
+
+    </div>
+
+
+    <div class="suite-grid">
+
+
+        <article class="suite-card reveal">
+
+            <div class="suite-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=85"
+                alt="Luxury suite">
+
+            </div>
+
+
+            <div class="suite-info">
+
+                <span>
+                    ROOM 01
+                </span>
+
+                <h3>
+                    Elegant Comfort
+                </h3>
+
+                <p>
+                    Replace this description with
+                    Lenora's verified room details.
+                </p>
+
+                <a href="#contact">
+                    ENQUIRE →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="suite-card reveal">
+
+            <div class="suite-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1400&q=85"
+                alt="Premium accommodation">
+
+            </div>
+
+
+            <div class="suite-info">
+
+                <span>
+                    ROOM 02
+                </span>
+
+                <h3>
+                    Premium Escape
+                </h3>
+
+                <p>
+                    Replace this description with
+                    Lenora's verified room details.
+                </p>
+
+                <a href="#contact">
+                    ENQUIRE →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="suite-card reveal">
+
+            <div class="suite-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1400&q=85"
+                alt="Luxury apartment">
+
+            </div>
+
+
+            <div class="suite-info">
+
+                <span>
+                    ROOM 03
+                </span>
+
+                <h3>
+                    Signature Stay
+                </h3>
+
+                <p>
+                    Replace this description with
+                    Lenora's verified room details.
+                </p>
+
+                <a href="#contact">
+                    ENQUIRE →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     AMENITIES
+========================================= -->
+
+<section class="amenities" id="amenities">
+
+    <div class="amenities-heading reveal">
+
+        <div class="section-label">
+            THE EXPERIENCE
+        </div>
+
+        <h2 class="section-title">
+
+            Designed For
+            <br>
+
+            <span>Comfort.</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="amenities-grid">
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                01
+            </div>
+
+            <h3>
+                Comfort
+            </h3>
+
+            <p>
+                Thoughtful spaces designed
+                to help you relax and recharge.
+            </p>
+
+        </div>
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                02
+            </div>
+
+            <h3>
+                Privacy
+            </h3>
+
+            <p>
+                Enjoy an atmosphere where
+                your personal space comes first.
+            </p>
+
+        </div>
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                03
+            </div>
+
+            <h3>
+                Convenience
+            </h3>
+
+            <p>
+                Everything you need for
+                a smooth and effortless stay.
+            </p>
+
+        </div>
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                04
+            </div>
+
+            <h3>
+                Elegance
+            </h3>
+
+            <p>
+                A refined atmosphere that
+                makes ordinary moments memorable.
+            </p>
+
+        </div>
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                05
+            </div>
+
+            <h3>
+                Service
+            </h3>
+
+            <p>
+                A welcoming experience built
+                around your needs.
+            </p>
+
+        </div>
+
+
+        <div class="amenity reveal">
+
+            <div class="amenity-number">
+                06
+            </div>
+
+            <h3>
+                Experience
+            </h3>
+
+            <p>
+                Because where you stay can
+                become part of the memory.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+     CINEMATIC STATEMENT
+========================================= -->
+
+<section class="statement">
+
+    <div class="statement-bg">
+
+        <img
+        src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2200&q=90"
+        alt="Luxury interior">
+
+    </div>
+
+
+    <div class="statement-overlay"></div>
+
+
+    <div class="statement-content reveal">
+
+        <div class="section-label">
+            THE ART OF STAYING
+        </div>
+
+
+        <h2>
+
+            Come For The Stay.
+            <br>
+
+            <span>Leave With A Memory.</span>
+
+        </h2>
+
+
+        <p>
+
+            Sometimes luxury isn't about
+            having more.
+
+            It's about feeling at ease.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     GALLERY
+========================================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="gallery-heading reveal">
+
+        <div class="section-label">
+            GALLERY
+        </div>
+
+
+        <h2 class="section-title">
+
+            A Glimpse Of
+            <br>
+
+            <span>Luxury.</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85"
+            alt="Luxury accommodation">
+
+        </div>
+
+
+        <div class="gallery-item reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+            alt="Luxury interior">
+
+        </div>
+
+
+        <div class="gallery-item reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85"
+            alt="Elegant interior">
+
+        </div>
+
+
+        <div class="gallery-item reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85"
+            alt="Apartment interior">
+
+        </div>
+
+
+        <div class="gallery-item reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85"
+            alt="Swimming pool">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     REVIEWS
+========================================= -->
+
+<section class="reviews" id="reviews">
+
+    <div class="review-wrap">
+
+
+        <div class="review-header reveal">
+
+            <div class="section-label">
+                GUEST REVIEWS
+            </div>
+
+
+            <h2 class="section-title">
+
+                What Our
+                <br>
+
+                <span>Guests Say.</span>
+
+            </h2>
+
+
+            <p class="section-text">
+
+                Real guest feedback can be displayed here
+                directly from verified Google reviews.
+
+            </p>
+
+        </div>
+
+
+        <div class="review-grid">
+
+
+            <div class="review reveal">
+
+                <div class="quote">
+                    “
+                </div>
+
+
+                <p>
+
+                    Add a genuine Google review from
+                    a Lenora guest here.
+
+                </p>
+
+
+                <small>
+                    — Google Guest Review
+                </small>
+
+            </div>
+
+
+            <div class="review reveal">
+
+                <div class="quote">
+                    “
+                </div>
+
+
+                <p>
+
+                    Add another verified guest review
+                    here to build trust.
+
+                </p>
+
+
+                <small>
+                    — Google Guest Review
+                </small>
+
+            </div>
+
+
+            <div class="review reveal">
+
+                <div class="quote">
+                    “
+                </div>
+
+
+                <p>
+
+                    A third genuine review can complete
+                    this section beautifully.
+
+                </p>
+
+
+                <small>
+                    — Google Guest Review
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="google-rating reveal">
+
+            <strong>
+                Google Reviews
+            </strong>
+
+
+            <br><br>
+
+
+            <span class="stars">
+                ★★★★★
+            </span>
+
+
+            <p style="
+            color:#888;
+            font-size:11px;
+            margin-top:8px;
+            ">
+
+                Replace with Lenora's verified Google rating
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+     LOCATION
+========================================= -->
+
+<section class="location" id="location">
+
+    <div class="location-grid">
+
+
+        <div class="map reveal-left">
+
+            <div class="map-card">
+
+                <div style="
+                font-size:30px;
+                color:#d8ad58;
+                ">
+                    ⌖
+                </div>
+
+
+                <h3 style="
+                font-family:'Cormorant Garamond';
+                font-size:28px;
+                ">
+
+                    Lenora Apartments
+
+                </h3>
+
+
+                <p style="
+                font-size:11px;
+                color:#999;
+                margin-top:7px;
+                ">
+
+                    Replace with verified Google Maps address
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="location-copy reveal-right">
+
+
+            <div class="section-label">
+                FIND US
+            </div>
+
+
+            <h2 class="section-title">
+
+                Your Stay
+                <br>
+
+                <span>Awaits.</span>
+
+            </h2>
+
+
+
+            <div class="contact-line">
+
+                <span>
+                    LOCATION
+                </span>
+
+
+                <strong>
+                    INSERT VERIFIED ADDRESS
+                </strong>
+
+            </div>
+
+
+
+            <div class="contact-line">
+
+                <span>
+                    PHONE
+                </span>
+
+
+                <strong>
+                    INSERT VERIFIED PHONE NUMBER
+                </strong>
+
+            </div>
+
+
+
+            <div class="contact-line">
+
+                <span>
+                    WHATSAPP
+                </span>
+
+
+                <strong>
+                    Available for enquiries & reservations
+                </strong>
+
+            </div>
+
+
+
+            <br>
+
+
+            <a
+            href="https://www.google.com/maps/"
+            target="_blank"
+            class="btn btn-gold">
+
+                GET DIRECTIONS →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FINAL CALL TO ACTION
+========================================= -->
+
+<section class="cta" id="contact">
+
+
+    <div class="cta-content reveal">
+
+
+        <div class="section-label">
+            LENORA APARTMENTS & SUITES
+        </div>
+
+
+        <h2>
+
+            Your Next
+            <br>
+
+            <span>Stay Awaits.</span>
+
+        </h2>
+
+
+        <p>
+
+            Step into comfort.
+            Experience elegance.
+            Make your next stay one to remember.
+
+        </p>
+
+
+        <a
+        href="https://wa.me/234XXXXXXXXXX"
+        target="_blank"
+        class="btn btn-gold">
+
+            RESERVE YOUR STAY →
+
+        </a>
+
+    </div>
+
+</section>
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-brand">
+                LENORA
+            </div>
+
+
+            <p style="
+            color:#666;
+            font-size:12px;
+            line-height:1.8;
+            max-width:350px;
+            margin-top:15px;
+            ">
+
+                Apartments & Suites designed around
+                comfort, elegance and memorable stays.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                EXPLORE
+            </h4>
+
+
+            <a href="#about">
+                About
+            </a>
+
+
+            <a href="#suites">
+                Suites
+            </a>
+
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+
+            <a href="#reviews">
+                Reviews
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                CONNECT
+            </h4>
+
+
+            <a href="#location">
+                Location
+            </a>
+
+
+            <!-- REPLACE NUMBER -->
+
+            <a href="https://wa.me/234XXXXXXXXXX">
+                WhatsApp
+            </a>
+
+
+            <a href="#contact">
+                Reservations
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Lenora Apartments & Suites
+        </span>
+
+
+        <span>
+            Designed with ✦ by Crystal
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     FLOATING WHATSAPP BUTTON
+========================================= -->
+
+<a
+href="https://wa.me/234XXXXXXXXXX"
+target="_blank"
+class="whatsapp"
+aria-label="Chat on WhatsApp">
+
+    ☎
+
+</a>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   LENORA INTERACTIVE EXPERIENCE
+========================================= */
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        const loader =
+        document.querySelector(".loader");
+
+        if(loader){
+
+            loader.classList.add("hide");
+
+        }
+
+    },2300);
+
+});
+
+
+
+/* =========================================
+   SCROLL REVEALS
+========================================= */
+
+const revealElements =
+document.querySelectorAll(
+".reveal,.reveal-left,.reveal-right"
+);
+
+
+const observer =
+new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},
+{
+    threshold:.15
+}
+
+);
+
+
+revealElements.forEach(el => {
+
+    observer.observe(el);
+
+});
+
+
+
+/* =========================================
+   SCROLL PROGRESS
+========================================= */
+
+const progress =
+document.querySelector(".progress");
+
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop =
+    document.documentElement.scrollTop;
+
+
+    const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+
+    const percentage =
+    height > 0
+    ? (scrollTop / height) * 100
+    : 0;
+
+
+    if(progress){
+
+        progress.style.width =
+        percentage + "%";
+
+    }
+
+});
+
+
+
+/* =========================================
+   PARALLAX HERO
+========================================= */
+
+const heroBg =
+document.querySelector(".hero-bg");
+
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+    window.scrollY;
+
+
+    if(
+        heroBg &&
+        scroll < window.innerHeight
+    ){
+
+        heroBg.style.transform =
+        `scale(1) translateY(${scroll * .15}px)`;
+
+    }
+
+});
+
+
+
+/* =========================================
+   MOUSE CINEMATIC EFFECT
+========================================= */
+
+document.addEventListener("mousemove", e => {
+
+    const x =
+    (e.clientX / window.innerWidth - .5);
+
+
+    const y =
+    (e.clientY / window.innerHeight - .5);
+
+
+    const hero =
+    document.querySelector(".hero-content");
+
+
+    if(
+        hero &&
+        window.innerWidth > 850
+    ){
+
+        hero.style.transform =
+        `translate(${x * 8}px, ${y * 8}px)`;
+
+    }
+
+});
+
+
+
+/* =========================================
+   GALLERY LIGHTBOX
+========================================= */
+
+const galleryItems =
+document.querySelectorAll(".gallery-item");
+
+
+galleryItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        const img =
+        item.querySelector("img");
+
+
+        if(!img) return;
+
+
+        const overlay =
+        document.createElement("div");
+
+
+        overlay.style.position="fixed";
+        overlay.style.inset="0";
+        overlay.style.background="rgba(0,0,0,.94)";
+        overlay.style.zIndex="99998";
+        overlay.style.display="flex";
+        overlay.style.alignItems="center";
+        overlay.style.justifyContent="center";
+        overlay.style.padding="30px";
+        overlay.style.cursor="zoom-out";
+
+
+        const bigImage =
+        document.createElement("img");
+
+
+        bigImage.src =
+        img.src;
+
+
+        bigImage.style.maxWidth="95%";
+        bigImage.style.maxHeight="90vh";
+        bigImage.style.objectFit="contain";
+        bigImage.style.boxShadow=
+        "0 30px 80px rgba(0,0,0,.8)";
+
+
+        overlay.appendChild(bigImage);
+
+
+        document.body.appendChild(overlay);
+
+
+        overlay.addEventListener("click", () => {
+
+            overlay.remove();
+
+        });
+
+    });
+
+});
+
+
+
+/* =========================================
+   SUITE CARD TILT
+========================================= */
+
+document.querySelectorAll(".suite-card")
+.forEach(card => {
+
+
+    card.addEventListener("mousemove", e => {
+
+        if(window.innerWidth < 850)
+            return;
+
+
+        const rect =
+        card.getBoundingClientRect();
+
+
+        const x =
+        e.clientX - rect.left;
+
+
+        const y =
+        e.clientY - rect.top;
+
+
+        const rotateX =
+        ((y / rect.height) - .5) * -6;
+
+
+        const rotateY =
+        ((x / rect.width) - .5) * 6;
+
+
+        card.style.transform =
+        `perspective(900px)
+         rotateX(${rotateX}deg)
+         rotateY(${rotateY}deg)
+         scale(1.02)`;
+
+    });
+
+
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+        "perspective(900px) rotateX(0) rotateY(0) scale(1)";
+
+    });
+
+});
+
+
+
+/* =========================================
+   BUTTON INTERACTION
+========================================= */
+
+document.querySelectorAll(".btn")
+.forEach(button => {
+
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.letterSpacing="1px";
+
+    });
+
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.letterSpacing="0";
+
+    });
+
+});
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+const navbar =
+document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 60){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
